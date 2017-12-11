@@ -11,11 +11,13 @@
 
 start() ->
 	application:start(smpp34),
-    gen_esme34:start({local, ?MODULE}, ?MODULE, [self(), "138.201.241.249", 2775, "Celutrs", "urqijeqn"], [{ignore_version, true}]).
+  gen_esme34:start({local, ?MODULE}, ?MODULE, [self(), "localhost", 13013, "simple", "simple123"], [{ignore_version, true}]).
+    %gen_esme34:start({local, ?MODULE}, ?MODULE, [self(), "138.201.241.249", 2775, "Celutrs", "urqijeqn"], [{ignore_version, true}]).
+%gen_esme34:start({local, ?MODULE}, ?MODULE, [self(), "180.179.146.72", 8888, "insigndemo", "xg6CwqZz"], [{ignore_version, true}]).
 
 start(Host, Port, IgnoreVersion) ->
 	application:start(smpp34),
-    gen_esme34:start({local, ?MODULE}, ?MODULE, [self(), Host, Port, "Celutrs", "urqijeqn"], [{ignore_version, IgnoreVersion}]).
+    gen_esme34:start({local, ?MODULE}, ?MODULE, [self(), Host, Port, "simple", "simple123"], [{ignore_version, IgnoreVersion}]).
 
 stop() ->
     gen_esme34:cast(?MODULE, stop).

@@ -110,7 +110,7 @@ init([{'__gen_esme34_mod', Mod} | InitArgs]) ->
 
 
 handle_call(ping, _From, #st_gensmpp34{t1=T1, pdutx=TxCount, pdurx=RxCount}=St) ->
-    UptimeS = timer:now_diff(now(), T1) div 1000000,
+    UptimeS = timer:now_diff(erlang:system_time(), T1) div 1000000,
     Uptime = calendar:seconds_to_daystime(UptimeS),
     {reply, {pong, [{uptime, Uptime}, {txpdu, TxCount}, {rxpdu, RxCount}]}, St};
 
@@ -287,7 +287,7 @@ init_stage2({Host, Port, _}=ConnSpec, Opts, #st_gensmpp34{logger=Logger}=St0) ->
             {stop, Reason}; 
         {ok, Esme} -> 
             Mref = erlang:monitor(process, Esme),
-            St1 = St0#st_gensmpp34{t1=now(), esme=Esme, esme_mref=Mref},
+            St1 = St0#st_gensmpp34{t1=erlang:system_time(), esme=Esme, esme_mref=Mref},
             init_stage3(ConnSpec, Esme, Opts, St1)
     end.
 

@@ -1,0 +1,14 @@
+{"1.1.0",
+[{<<"amqp_client">>,{pkg,<<"amqp_client">>,<<"3.6.14">>},0},
+ {<<"rabbit_common">>,{pkg,<<"rabbit_common">>,<<"3.6.14">>},1},
+ {<<"recon">>,{pkg,<<"recon">>,<<"2.3.2">>},2},
+ {<<"smpp34pdu">>,
+  {git,"git@bitbucket.org:mobiliteam/sc-pdu.git",
+       {ref,"668fd0781d5a9fa1b6ed8fe925d30947556659a3"}},
+  0}]}.
+[
+{pkg_hash,[
+ {<<"amqp_client">>, <<"523C4A84D7CAB9CE19E1BA17274C87F10627E6539735C1F26DFE5CE2D5AAD75D">>},
+ {<<"rabbit_common">>, <<"DC134CD7228F656367E6E6AC88F1F4EF4A63D8A78A2238F52990A4DE467708A1">>},
+ {<<"recon">>, <<"4444C879BE323B1B133EEC5241CB84BD3821EA194C740D75617E106BE4744318">>}]}
+].
